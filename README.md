@@ -43,7 +43,7 @@ Toucan-1.5M (Apache-2.0) and SWE-smith trajectories (MIT). Nothing proprietary w
 
 ## Weights
 
-The three checkpoints and the tokenizer are being published on Hugging Face; the link will be added here.
+The three checkpoints and the tokenizer are on Hugging Face: https://huggingface.co/jamessleman/action-is-all-you-need
 
 ## License
 
