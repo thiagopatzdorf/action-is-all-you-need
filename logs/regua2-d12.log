@@ -1,0 +1,3 @@
+2026-11-11 15:33:36,416 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Loading model from /workspace/nc/base_checkpoints/acao2-d12 with step 2520
+2026-11-11 15:33:36,697 - nanochat.checkpoint_manager - [32m[1mINFO[0m - Building model with config: {'sequence_len': 2048, 'vocab_size': 32768, 'n_layer': 12, 'n_head': 6, 'n_kv_head': 6, 'n_embd': 768, 'window_pattern': 'SSSL'}
+{"modelo": "acao2-d12", "exemplos": 400, "pulados": {"sem_chamada": 99, "formato": 301, "nao_cabe": 269}, "nome_certo": 0.9275, "nome_e_argumentos": 0.6075, "acaso_nome": 0.4625, "varias_ferramentas": {"exemplos": 314, "nome_certo": 0.9076, "nome_e_argumentos": 0.6306, "acaso_nome": 0.3153}, "passos": 2520}

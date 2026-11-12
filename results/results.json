@@ -1,0 +1,9 @@
+{
+  "evaluation": "first tool call of held-out trajectories, greedy decoding, exact string match; 314 examples offering two or more tools; chance is the mean of 1/number_of_tools",
+  "chance_tool_name_pct": 31.5,
+  "models": [
+    {"name": "A-126", "tag": "acao2-d8",  "parameters": 125829354, "layers": 8,  "width": 512,  "train_tokens": 503316480,  "val_bpb": 0.125, "tool_name_pct": 88.2, "name_and_args_pct": 55.4},
+    {"name": "A-286", "tag": "acao2-d12", "parameters": 286261730, "layers": 12, "width": 768,  "train_tokens": 1321205760, "val_bpb": 0.099, "tool_name_pct": 90.8, "name_and_args_pct": 63.1},
+    {"name": "A-537", "tag": "acao2-d16", "parameters": 536871738, "layers": 16, "width": 1024, "train_tokens": 2818572288, "val_bpb": 0.079, "tool_name_pct": 94.0, "name_and_args_pct": 68.5}
+  ]
+}
