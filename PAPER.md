@@ -114,6 +114,34 @@ justify the next steps, and not enough to justify more than that.
 5. The comparison that matters commercially: this model as the action head of our production agents, against the
    general models they use today, on the tasks our clients actually run.
 
+## 7. Addendum, 14 November 2026: a fourth size and a multi-step test
+
+A fourth model finished after the first version of this paper. It is **not** a clean fourth point on the curve above, because
+two things changed at once: the size, and the corpus (the original 1.52 M documents plus 138,723 resolved code-agent
+trajectories from Open-SWE-Traces and SWE-rebench). The held-out shard and the scorer are unchanged.
+
+| Model | Parameters | Training tokens | Wall time | GPU cost | Validation loss | Right tool | Right tool and all arguments |
+|---|---|---|---|---|---|---|---|
+| A-537 | 536.9 M | 2.82 B | 11 h 27 min | about US$ 18 | 0.079 | 94.0% | 68.5% |
+| A-897 | 896.5 M | 5.22 B | 37 h 43 min | about US$ 61 | 0.065 | 95.2% | 72.0% |
+
+One point in tool name is within the noise of 314 examples. The control that separates size from data (the 537 M model on the
+larger corpus) has not been run.
+
+**Multi-step, with gold history.** For held-out trajectories with two or more calls we score every call, not only the first:
+the model is given the recorded history up to that call and writes the next one. Same 400 trajectories for both models.
+
+| Model | Calls scored | Right tool | Whole call exact | Whole trajectory exact (149 that fit) |
+|---|---|---|---|---|
+| A-537 | 579 | 93.3% | 56.7% | 45.6% |
+| A-897 | 579 | 95.0% | 61.5% | 53.0% |
+
+- **65% of the calls (1,095 of 1,674) do not fit in the 2,048-token context and are not scored.** For multi-step work the
+  binding limit today is the context window, not the parameter count.
+- Exact-call accuracy falls with position: for A-897, 68% on the first call, 62% on the second, 57% on the third, 33% from the
+  sixth on (21 examples).
+- The history is the recorded one, so the model never sees its own earlier mistake. Live accuracy would be lower.
+
 ## References
 
 - Vaswani et al., "Attention Is All You Need", 2017.
@@ -126,7 +154,7 @@ justify the next steps, and not enough to justify more than that.
 
 ## Appendix: what is released
 
-- Weights for the three models, the tokenizer, the scorer (`regua_b.py`), the data-preparation and training scripts, and the raw
+- Weights for the four models, the tokenizer, the scorer (`regua_b.py`), the data-preparation and training scripts, and the raw
   training and scoring logs.
 - The models are next-token predictors over agent trajectories. They are research artifacts: they are not instruction-tuned,
   have a 2,048-token context, and have not been evaluated for safety or for use in production.

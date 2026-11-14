@@ -1,0 +1,1 @@
+{"modelo": "acao3-d20", "exemplos": 400, "pulados": {"sem_chamada": 99, "formato": 301, "nao_cabe": 269}, "nome_certo": 0.9625, "nome_e_argumentos": 0.6875, "acaso_nome": 0.4625, "varias_ferramentas": {"exemplos": 314, "nome_certo": 0.9522, "nome_e_argumentos": 0.7197, "acaso_nome": 0.3153}, "passos": 4980}
