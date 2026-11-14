@@ -21,6 +21,19 @@ together and it is not a clean fourth point on the curve; the control run has no
 61.5% of 579 calls (A-537: 56.7%), and 65% of the calls do not fit in the 2,048-token context at all. Details in section 7
 of the paper.
 
+On those same 579 calls we also ran a production general-purpose model and a pair (the small model answers; the general
+model answers only when the small one is unsure):
+
+| Who answers | Right tool | Whole call right | Seconds per call |
+|---|---|---|---|
+| A-897 alone | 95.0% | 61.7% | 0.20 |
+| General model alone | 91.9% | 59.8% | 1.03 |
+| Pair (general model on 27.6% of the calls) | n/a | 64.8% | n/a |
+
+Differences of two or three points here are within noise, and the format is the small model's home format. The fair
+reading is "comparable, five times faster, complementary", not "better". Scripts: `scripts/passos_conf.py`,
+`scripts/braco_b.py`, `scripts/pontuar.py`; numbers in `results/pair-*.json`.
+
 ## What this is, and what it is not
 
 - A scaling experiment: same data, same recipe, three sizes. Every size improved every measure.

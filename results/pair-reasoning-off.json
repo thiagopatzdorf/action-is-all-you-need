@@ -1,0 +1,75 @@
+{
+ "passos": 579,
+ "pequeno": {
+  "nome": 95.0,
+  "chamada": 61.7,
+  "exato_texto": 61.5,
+  "seg_medio": 0.203
+ },
+ "llm": {
+  "nome": 91.9,
+  "chamada": 59.8,
+  "seg_medio": 1.03,
+  "tokens_entrada": 812457,
+  "tokens_saida": 25707
+ },
+ "ambos_certos": 52.8,
+ "so_pequeno": 8.8,
+ "so_llm": 6.9,
+ "cascata": [
+  {
+   "limiar_p_min": 0.0,
+   "sobe_para_llm": 7.3,
+   "chamada": 62.2,
+   "tokens_llm": 65708
+  },
+  {
+   "limiar_p_min": 0.3,
+   "sobe_para_llm": 17.8,
+   "chamada": 64.1,
+   "tokens_llm": 167539
+  },
+  {
+   "limiar_p_min": 0.5,
+   "sobe_para_llm": 27.6,
+   "chamada": 64.8,
+   "tokens_llm": 256485
+  },
+  {
+   "limiar_p_min": 0.7,
+   "sobe_para_llm": 44.7,
+   "chamada": 63.0,
+   "tokens_llm": 403242
+  },
+  {
+   "limiar_p_min": 0.8,
+   "sobe_para_llm": 51.6,
+   "chamada": 61.3,
+   "tokens_llm": 460685
+  },
+  {
+   "limiar_p_min": 0.9,
+   "sobe_para_llm": 57.2,
+   "chamada": 59.8,
+   "tokens_llm": 510277
+  },
+  {
+   "limiar_p_min": 0.95,
+   "sobe_para_llm": 62.2,
+   "chamada": 59.8,
+   "tokens_llm": 551310
+  },
+  {
+   "limiar_p_min": 0.99,
+   "sobe_para_llm": 70.3,
+   "chamada": 59.6,
+   "tokens_llm": 613951
+  },
+  {
+   "limiar_p_min": 1.01,
+   "sobe_para_llm": 100.0,
+   "chamada": 59.8,
+   "tokens_llm": 838164
+  }
+ ]
+}

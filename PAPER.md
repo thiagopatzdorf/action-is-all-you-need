@@ -142,6 +142,27 @@ the model is given the recorded history up to that call and writes the next one.
   sixth on (21 examples).
 - The history is the recorded one, so the model never sees its own earlier mistake. Live accuracy would be lower.
 
+**The small model, a general model, and the pair, on the same calls.** We gave a production general-purpose model (the one
+our client agents run on, reached through our gateway; unnamed for the reason given in section 1) exactly the same input for the
+same 579 calls and asked for the next call as JSON. Here a call counts as right when the tool name and the arguments, compared
+as objects, are equal.
+
+| Who answers | Right tool | Whole call right | Seconds per call | General-model tokens |
+|---|---|---|---|---|
+| A-897 alone | 95.0% | 61.7% | 0.20 | 0 |
+| General model alone, reasoning off | 91.9% | 59.8% | 1.03 | 838 k |
+| General model alone, reasoning on | 89.1% | 59.6% | 3.51 | 1.11 M |
+| Pair: general model answers only when A-897 is unsure | n/a | 64.8% | n/a | 256 k |
+
+- "Unsure" means the lowest probability A-897 gave to any token of its call is below 0.5 (27.6% of the calls).
+- The two fail on different calls: both right on 52.8%, only A-897 on 8.8%, only the general model on 6.9%.
+- With reasoning on, 23 answers came back empty because reasoning used the whole output budget; on the 556 answered calls the
+  general model scores 62.1% and A-897 62.6%.
+- What this does not show: differences of two or three points on 579 calls are within noise; the format is the one A-897 was
+  trained on and the general model got no examples and no prompt tuning; the threshold was chosen on these same calls; and
+  only calls that fit in 2,048 tokens are scored. The fair reading is "comparable on its home format, five times faster,
+  and complementary", not "better".
+
 ## References
 
 - Vaswani et al., "Attention Is All You Need", 2017.
